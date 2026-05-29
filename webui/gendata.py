@@ -108,7 +108,7 @@ if __name__ == "__main__":
         #faceimg = cv.resize(faceimg, (224,224))
         #faceimg = faceimg[..., ::-1]  # RGB
         #faceimg = transforms.ToPILImage()(faceimg)
-        faceimg = faceimg.resize((224,224))
+        faceimg = transforms.ToPILImage()(faceimg).resize((224,224)) # faceimg = faceimg.resize((224,224))
         faceimg = faceattr_trans(faceimg)
         inputs = torch.unsqueeze(faceimg, 0).float().to(device)
 

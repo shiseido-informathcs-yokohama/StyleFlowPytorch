@@ -1,0 +1,13 @@
+services:
+  styleflow:
+    image: styleflow
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./mymodels:/app/mymodels
+      - ./data:/app/data
+      - ./flow_weights:/app/flow_weights
+  

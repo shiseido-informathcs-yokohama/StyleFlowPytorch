@@ -221,7 +221,7 @@ def main():
     for i, att in enumerate(attribute_names):
         attributes[att] = make_slider(att, float(att_min[att]), float(att_max[att]),
                                       value=float(attr_selected.ravel()[i]),  # value on first render
-                                      key=hash(idx_selected*1e5 + i)  # re-render if index selected is changed!
+                                      key=f"attr_{idx_selected}_{i}" # ey=hash(idx_selected*1e5 + i)  # re-render if index selected is changed!
                                       )
 
     st.sidebar.markdown("# Lighting")
@@ -229,7 +229,7 @@ def main():
     for i, lt in enumerate(light_names):
         lights[lt] = make_slider(lt,
                                  value=float(lights_selected.ravel()[i]), # value on first render
-                                 key=hash(idx_selected*1e6 + i)  # re-render if index selected is changed!
+                                 key=f"light_{idx_selected}_{i}"# key=hash(idx_selected*1e6 + i)  # re-render if index selected is changed!
                                  )
 
     img_source = generate_image(model, w_selected)
